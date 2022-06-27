@@ -1,4 +1,5 @@
 This is a readme file for a shell,I/O Redirection tasks.
+<<<<<<< HEAD
 0. Hello, world. Write a script that prints “Hello, World”, followed by a new line to the standard output.
 1. Confused smilly. Write a script that displays a confused smiley "(Ôo)'.
 2. Display a file. Display the content of the /etc/passwd file.
@@ -22,3 +23,5 @@ This is a readme file for a shell,I/O Redirection tasks.
 20. A script without C, you would live in hiago.
 21. A script that reverse its input.
 22. A script that displays all users and their home directories, sorted by users.
+=======
+>>>>>>> c4764798b48442e90cefa01a2b72c32890769cc7
