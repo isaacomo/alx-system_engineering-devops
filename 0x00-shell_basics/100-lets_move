@@ -1,2 +1,2 @@
 #!/bi/bash
-mv [[:upper:]]* /tmp
+mv [[:upper:]]* /tmp/u
