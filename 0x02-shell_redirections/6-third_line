@@ -1,2 +1,2 @@
 #1/bin/bash
-head -n 3 iacta | tail -1
+head -n 3 l acts | tail -n 1
