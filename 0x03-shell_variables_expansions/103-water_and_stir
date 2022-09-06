@@ -1,1 +1,2 @@
 #!/bin/bash
+printf '%o\n' $(( echo $WATER | tr water 01234) + 5#$( echo $STIR | tr stir. 0123 ) )) | tr 01235567 behnort
