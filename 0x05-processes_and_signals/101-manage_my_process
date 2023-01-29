@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# 101-manage_my_process script
+
+case "$1" in
+	start)
+		# Start the process and create a PID file
+		./manage_my_process start
+		;;
+	stop)
+		# Stop the process and remove the PID file
+		./manage_my_process stop
+		;;
+	restart)
+		# Stop the process, remove the PID file, start the process and create a new PID file
+		./manage_my_process restart
+		;;
+	*)
+		# Display usage if any other argument or no argument is passed
+		echo "Usage: manage_my_process {start|stop|restart}"
+		;;
+esac
