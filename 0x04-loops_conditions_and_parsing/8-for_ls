@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
-# This  script that displays: The content of the current directory, In a list format
-for file in *;
+# This script is displaying "Best School" 10 times
+for i in *
 do
-	if [[ ! $file =~ ^\. ]];
-	then
-		name=${file#*-}
-		echo $name
-	fi
+    echo "$i" | cut -d'-' -f2
 done

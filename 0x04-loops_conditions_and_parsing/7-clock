@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
-# This script that displays the time for 12 hours and 59 minutes:
-hours=0
-minutes=1
-
-while [ $hours -le 12 ];
+# This script is displaying "Best School" 10 times
+i=1
+j=0
+while [ "$j" -le 12 ]
 do
-	while [ $minutes -le 59 ];
-	do
-		echo "$hours : $minutes"
-		minutes=$((minutes+1))
-	done
-	hours=$((hours+1))
-	minutes=0
-done | head -n 70
+    echo "Hour: $j"
+    i=1
+    while [ "$i" -le 59 ]
+    do
+        echo "$i"
+	i=$((i + 1))
+    done
+    j=$((j + 1))
+done
+i=$i
