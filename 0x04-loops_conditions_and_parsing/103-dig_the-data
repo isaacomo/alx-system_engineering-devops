@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Script to group visitors by IP and HTTP status code and display the data
-
-awk '{print $1 " " $9}' /var/log/apache2/access.log | awk '{print $1 " " $2}' | sort | uniq -c | sort -nr
+# This script is displaying "Holberton School" 10 times
+file_h="apache-access.log"
+awk -F' ' '{ print $1, $9}' $file_h | sort | uniq -c| sort -nr

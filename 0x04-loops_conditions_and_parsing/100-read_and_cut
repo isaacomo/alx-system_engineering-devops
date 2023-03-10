@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
-#This is a Bash script that displays the content of the file /etc/passwd.
-
-while read -r line;
+# This script is displaying "Best School" 10 times
+file_h="/etc/passwd"
+while IFS= read -r line
 do
-	# Extract username, user id, and home directory path
-	username=$(echo $line | awk -F: '{print $1}')
-	userid=$(echo $line | awk -F: '{print $3}')
-	homedir=$(echo $line | awk -F: '{print $6}')
-
-	# Display the extracted information
-	echo "Username: $username"
-	echo "User ID: $userid"
-	echo "Home Directory: $homedir"
-done < /etc/passwd
+    echo "$line" | cut -d":" -f1,3,6
+done < "$file_h"
