@@ -1,45 +1,25 @@
 #!/usr/bin/python3
 
-"""
-importing requests module
-"""
+import praw
 
-from requests import get
-
-
-def recurse(subreddit, hot_list=[], after=None):
-    """
-    function that queries the Reddit API and returns a list containing the
-    titles of all hot articles for a given subreddit.
-    """
-
-    params = {'show': 'all'}
-
-    if subreddit is None or not isinstance(subreddit, str):
-        return None
-
-    user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
-
-    url = 'https://www.reddit.com/r/{}/hot/.json?after={}'.format(subreddit,
-                                                                  after)
-
-    response = get(url, headers=user_agent, params=params)
-
-    if (response.status_code != 200):
-        return None
-
-    all_data = response.json()
+def recurse(subreddit, hot_list=[]):
+    reddit = praw.Reddit(client_id='YOUR_CLIENT_ID',
+                         client_secret='YOUR_CLIENT_SECRET',
+                         user_agent='YOUR_USER_AGENT')
 
     try:
-        raw1 = all_data.get('data').get('children')
-        after = all_data.get('data').get('after')
+        subreddit_obj = reddit.subreddit(subreddit)
+        for submission in subreddit_obj.hot(limit=None):
+            hot_list.append(submission.title)
+        return hot_list
+    except praw.exceptions.InvalidSubreddit:
+        return None
 
-        if after is None:
-            return hot_list
-
-        for i in raw1:
-            hot_list.append(i.get('data').get('title'))
-
-        return recurse(subreddit, hot_list, after)
-    except:
-        print("None")
+# Example usage
+subreddit = 'python'
+hot_articles = recurse(subreddit)
+if hot_articles is not None:
+    for title in hot_articles:
+        print(title)
+else:
+    print("Invalid subreddit.")
